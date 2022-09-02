@@ -1,0 +1,13 @@
+import time                                                       
+
+scale = int(input('time:'))                                       #enter progress total time
+print('----------start')                                          #print start dividing line
+m = time.perf_counter()                                           #cycle timing starting point
+for i in range(scale+1):                                          #start print loop
+    a = '*'*i                                                       #progress bar symbol after design progress
+    b = '.'*(scale-i)                                               #progress bar symbol before design progress
+    c = time.perf_counter()-m                                       #end the loop timing and calculate the time spent in the previous loop
+    d = (i/scale)*100                                               #calculate the percentage of progress bar completion
+    print('\r{:^3.0f}%[{}->{}]{:.2f}s'.format(d,a,b,c),end='')      #print progress bar
+    time.sleep(1.0)                                                 #progress bar movement speed
+print('\n----------end')                                          #print end dividing line
